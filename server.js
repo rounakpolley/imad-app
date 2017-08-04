@@ -7,7 +7,7 @@ app.use(morgan('combined'));
 
 var articles = 
 {
-    'article-One' : 
+    'article-one' : 
     {
         title   :'RounakPolley | Article1',
         heading :'Article One',
@@ -76,14 +76,17 @@ app.get('/:articleName', function (req, res)
     //articleName = article-one
     //articles[articleName] = ...
     var articleName = req.params.articleName;
+    alert(articleName);
     res.send(createTemplate(articles[articleName]));
 });
 
-app.get('/ui/style.css', function (req, res) {
+app.get('/ui/style.css', function (req, res) 
+{
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
 
-app.get('/ui/madi.png', function (req, res) {
+app.get('/ui/madi.png', function (req, res) 
+{
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 

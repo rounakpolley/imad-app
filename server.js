@@ -9,13 +9,36 @@ var articleOne =
 {
     title   :'RounakPolley | Article1',
     heading :'Article One',
-    content :`  <hr/>
-                <h1>Article One</h1>
+    content :`  <h1>Article One</h1>
                     <p>Just a demo article..</p>
-                    <p>Just a demo article..</p>
-                <hr/>`,
+                    <p>Just a demo article..</p>`,
     date    :'Date : 3 Aug, 17'
 }
+
+var htmlTemplate = 
+`
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta name="viewpoint" content="width=device-width initial-scale=1"/>
+        <title>${title}</title>
+        <link href="/ui/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    <div class="container">
+        <a href="/"><strong>H O M E</strong></a>
+        <hr/>
+        <h1>${heading}</h1>
+    
+        <p>Just a demo article..</p>
+        <p>Just a demo article..</p>
+        <hr/>
+        <h4>${date}</h4>
+    </div>
+    </body>
+    
+</html>
+`;
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));

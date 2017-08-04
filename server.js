@@ -15,7 +15,7 @@ var articles =
                     <p>Just a demo article..</p>`,
         date    :'Date : 3 Aug, 17'
     },
-    'article-Two' :
+    'article-two' :
     {
         title   :'RounakPolley | Article2',
         heading :'Article Two',
@@ -23,7 +23,7 @@ var articles =
                     <p>Just a demo article..</p>`,
         date    :'Date : 3 Aug, 17'
     },
-    'article-Three' : 
+    'article-three' : 
     {
         title   :'RounakPolley | Article3',
         heading :'Article Three',

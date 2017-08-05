@@ -34,5 +34,17 @@ function moveRight ()
 img.onclick = function ()
 {
     var interval = setInterval(moveRight, 10);
-}    
+}
+
+// share counter
+var counterButton = document.querySelector('counterButton');
+var counterDisplay= document.querySelector('counterDisplay');
+var counter = 0;
+
+counterButton.onclick = function ()
+{
+    counter +=1;
+    counterDisplay.innerHTML = counter;
+}
+
 };

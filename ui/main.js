@@ -1,3 +1,5 @@
+window.onload = init ()
+{
 console.log('Loaded!');
 // move img gradually
 var img = document.querySelector('#logo');
@@ -13,4 +15,4 @@ img.onclick = function ()
 {
     var interval = setInterval(moveRight, 100);
 }    
-
+}

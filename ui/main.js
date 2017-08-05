@@ -7,8 +7,9 @@ var img = document.querySelector('#logo');
 var marginLeft = 0;
 function moveRight ()
 {
- marginLeft = marginLeft + 1;
- img.style.marginLeft = marginLeft + 'px';
+    if((marginLeft > 0) && (marginLeft <  100))    marginLeft = marginLeft + 1;
+    if((marginLeft < 0) && (marginLeft > -100))    marginLeft = marginLeft - 1;
+    img.style.marginLeft = marginLeft + 'px';
 }
 
 img.onclick = function ()

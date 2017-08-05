@@ -37,8 +37,8 @@ img.onclick = function ()
 }
 
 // share counter
-var counterButton = document.querySelector('counterButton');
-var counterDisplay= document.querySelector('counterDisplay');
+var counterButton = document.querySelector('#counterButton');
+var counterDisplay= document.querySelector('#counterDisplay');
 var counter = 0;
 
 counterButton.onclick = function ()

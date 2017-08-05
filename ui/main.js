@@ -44,7 +44,7 @@ var counter = 0;
 counterButton.onclick = function ()
 {
     counter +=1;
-    counterDisplay.innerHTML = counter;
+    counterDisplay.innerHTML = counter.toString();
 }
 
 };

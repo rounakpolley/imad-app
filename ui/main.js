@@ -7,7 +7,7 @@ var position   = 0; //0 for middle left -1 right 1
 var marginLeft = 0;
 function moveRight ()
 {
-    if(((marginLeft > 0) && (marginLeft <  100)) && position == 0)
+    if(((marginLeft >= 0) && (marginLeft <  100)) && position == 0)
     {
         marginLeft = marginLeft + 1;
         if(marginLeft == 100) position = 1;
@@ -33,7 +33,6 @@ function moveRight ()
 
 img.onclick = function ()
 {
-    marginLeft = marginLeft + 1;
     var interval = setInterval(moveRight, 10);
 }    
 };

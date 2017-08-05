@@ -1,4 +1,4 @@
-window.onload = init ()
+window.onload = function init ()
 {
 console.log('Loaded!');
 // move img gradually

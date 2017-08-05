@@ -22,7 +22,7 @@ function moveRight ()
         marginLeft = marginLeft - 1;
         if(marginLeft == -100) position = 1;
     }
-    if(((marginLeft < 0) && (marginLeft > -100)) && position == 1)
+    if(((marginLeft < 0) && (marginLeft >= -100)) && position == 1)
     {
         marginLeft = marginLeft + 1;
         if(marginLeft == 0) position = 0;

@@ -43,12 +43,12 @@ var counterDisplay= document.querySelector('#counterDisplay');  console.log(coun
 counterButton.onclick = function ()
 {
     console.log('clicked');
-    var request = new XMLhttpRequest();                 //creating a request object
+    var request = new XMLHttpRequest();                 //creating a request object
         
     request.onreadystatechange = function ()            //captuting the response & storing in a var
     {
         console.log('ready');
-        if(request.readyState === XMLhttpRequest.DONE)  //request is recieved
+        if(request.readyState === XMLHttpRequest.DONE)  //request is recieved
         {
             if(request.status == 200)                   //i.e. successful
             {

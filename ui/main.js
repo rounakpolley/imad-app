@@ -80,10 +80,36 @@ counterButton.onclick = function ()
 };
 
 var nameList = document.querySelector('#nameList');
-var name = document.querySelector('#userName').value;
+
 document.querySelector('#nameSubmit').onclick = function ()
 {
+    var name = document.querySelector('#userName').value;
+    //names to be refreshed on each click so need to be inside fn block
     
+    var request = new XMLHttpRequest();                 //creating a request object
+    request.onreadystatechange = function ()            //captuting the response & storing in a var
+    {
+        if(request.readyState === XMLHttpRequest.DONE)  //request is recieved
+        {
+            if(request.status == 200)                   //i.e. successful
+            {
+                var recievedList = '';
+                var names = JSON.parse(request.responseText);
+                
+                
+                for(i=0; i<names.length; i++)
+                {
+                    recievedList += '<li>'+ names[i] +'</li>';
+                }
+                nameList.innerHTML = recievedList;
+            }
+        }
+    };
+    
+    //make a request
+    request.open('GET', 'http://rounakpolley19972014.imad.hasura-app.io/submit-name?name='+ name,
+                true);
+    request.send(null);
 };
 
 };

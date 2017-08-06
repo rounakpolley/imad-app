@@ -37,17 +37,34 @@ img.onclick = function ()
 };
 
 // share counter
-var counterButton = document.querySelector('#counterButton');   console.log(counterButton);
-var counterDisplay= document.querySelector('#counterDisplay');  console.log(counterDisplay);
+var counterButton = document.querySelector('#counterButton');
+var counterDisplay= document.querySelector('#counterDisplay');
 
+    var request0 = new XMLHttpRequest();                 //creating a request object
+        
+    request0.onreadystatechange = function ()            //captuting the response & storing in a var
+    {
+        if(request0.readyState === XMLHttpRequest.DONE)  //request is recieved
+        {
+            if(request0.status == 200)                   //i.e. successful
+            {
+                    var counter = request0.responseText;
+                    counterDisplay.innerHTML = counter.toString();
+            }
+        }
+    };
+    
+    //make a request
+    request.open('GET', 'http://rounakpolley19972014.imad.hasura-app.io/currentCounter', true);
+    request.send(null);
+
+// increment counter (in server.js) when share clicked
 counterButton.onclick = function ()
 {
-    console.log('clicked');
     var request = new XMLHttpRequest();                 //creating a request object
         
     request.onreadystatechange = function ()            //captuting the response & storing in a var
     {
-        console.log('ready');
         if(request.readyState === XMLHttpRequest.DONE)  //request is recieved
         {
             if(request.status == 200)                   //i.e. successful

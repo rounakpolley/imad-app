@@ -55,8 +55,8 @@ var counterDisplay= document.querySelector('#counterDisplay');
     };
     
     //make a request
-    request.open('GET', 'http://rounakpolley19972014.imad.hasura-app.io/currentCounter', true);
-    request.send(null);
+    request0.open('GET', 'http://rounakpolley19972014.imad.hasura-app.io/currentCounter', true);
+    request0.send(null);
 
 // increment counter (in server.js) when share clicked
 counterButton.onclick = function ()

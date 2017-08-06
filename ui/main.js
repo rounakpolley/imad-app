@@ -37,14 +37,15 @@ img.onclick = function ()
 };
 
 // share counter
-var counterButton = document.querySelector('#counterButton');
-var counterDisplay= document.querySelector('#counterDisplay');
+var counterButton = document.querySelector('#counterButton');   console.log(counterButton);
+var counterDisplay= document.querySelector('#counterDisplay');  console.log(counterDisplay);
 
 counterButton.onclick = function ()
 {
+    console.log('clicked');
     var request = new XMLhttpRequest();                 //creating a request object
         
-    request.onreadystatechange = function ()            //captuting the response & storing it in a var
+    request.onreadystatechange = function ()            //captuting the response & storing in a var
     {
         if(request.readyState === XMLhttpRequest.DONE)  //request is recieved
         {

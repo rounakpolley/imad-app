@@ -72,10 +72,15 @@ app.get('/', function (req, res)
 });
 
 //counts the number of times share is clicked
+
 var counter = 0;
 app.get('/counter', function (req, res)
 {
     counter += 1;
+    res.send(counter.toString());
+});
+app.get('/currentCounter', function (req, res)
+{
     res.send(counter.toString());
 });
 

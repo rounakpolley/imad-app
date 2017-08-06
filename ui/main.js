@@ -47,6 +47,7 @@ counterButton.onclick = function ()
         
     request.onreadystatechange = function ()            //captuting the response & storing in a var
     {
+        console.log('ready');
         if(request.readyState === XMLhttpRequest.DONE)  //request is recieved
         {
             if(request.status == 200)                   //i.e. successful

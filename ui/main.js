@@ -29,22 +29,33 @@ function moveRight ()
     }
     
     img.style.marginLeft = marginLeft + 'px';
-}
+};
 
 img.onclick = function ()
 {
     var interval = setInterval(moveRight, 10);
-}
+};
 
 // share counter
 var counterButton = document.querySelector('#counterButton');
 var counterDisplay= document.querySelector('#counterDisplay');
-var counter = 0;
 
 counterButton.onclick = function ()
 {
-    counter +=1;
-    counterDisplay.innerHTML = counter.toString();
-}
+    var request = new XMLhttpRequest();                 //creating a request object
+        
+    request.onreadystatechange = function ()            //captuting the response & storing it in a var
+    {
+        if(request.readyState === XMLhttpRequest.DONE)  //request is recieved
+        {
+            if(request.status == 200)                   //i.e. successful
+            {
+                var counter = request.responseText;
+                counterDisplay.innerHTML = counter.toString();
+            }
+        }
+    };
+    //counter +=1;
+};
 
 };

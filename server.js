@@ -85,9 +85,9 @@ app.get('/currentCounter', function (req, res)
 });
 
 var nameList = [];
-app.get('/submit-name/:name', function (rep,res)
+app.get('/submit-name', function (rep,res)
 {
-     var name = req.params.name;
+     var name = req.query.name;
      nameList.push(name);
      
      res.send(JSON.stringify(nameList));

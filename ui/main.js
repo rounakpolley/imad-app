@@ -55,7 +55,16 @@ counterButton.onclick = function ()
             }
         }
     };
-    //counter +=1;
+    
+    //make a request
+    request.open('GET', 'http://rounakpolley19972014.imad.hasura-app.io/counter', true);
+    request.send(null);
 };
 
 };
+
+
+
+
+
+

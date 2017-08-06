@@ -1,6 +1,5 @@
 window.onload = function init ()
 {
-console.log('Loaded!');
 // move img gradually
 var img = document.querySelector('#logo');
 var position   = 0; //0 for middle left -1 right 1
@@ -78,6 +77,13 @@ counterButton.onclick = function ()
     //make a request
     request.open('GET', 'http://rounakpolley19972014.imad.hasura-app.io/counter', true);
     request.send(null);
+};
+
+var nameList = document.querySelector('#nameList');
+var name = document.querySelector('#userName').value;
+document.querySelector('#nameSubmit').onclick = function ()
+{
+    
 };
 
 };

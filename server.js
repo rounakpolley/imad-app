@@ -84,10 +84,18 @@ app.get('/currentCounter', function (req, res)
     res.send(counter.toString());
 });
 
+var nameList = [];
+app.get('/submit-name/:name', function (rep,res)
+{
+     var name = req.params.name;
+     nameList.push(name);
+     
+     res.send(JSON.stringify(nameList));
+});
+
 app.get('/:articleName', function (req, res) 
 {
-    //articleName = article-one
-    //articles[articleName] = ...
+    //articleName = article-one //articles[articleName] = ...
     var articleName = req.params.articleName;
     res.send(createTemplate(articles[articleName]));
 });

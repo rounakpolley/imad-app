@@ -2,6 +2,16 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 
+var Pool = require('pg').Pool;
+var config =
+{
+    user        : 'rounakpolley19972014',
+    database    : 'rounakpolley19972014',
+    host        : 'http://db.imad.hasura-app.io',
+    port        : '5432',
+    password    : 'db-rounakpolley19972014-76977'
+}
+
 var app = express();
 app.use(morgan('combined'));
 
@@ -69,6 +79,11 @@ function createTemplate(data)
 app.get('/', function (req, res) 
 {
     res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+
+app.get('/test-db', function (req, res) 
+{
+    
 });
 
 //counts the number of times share is clicked

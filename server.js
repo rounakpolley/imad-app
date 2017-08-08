@@ -115,6 +115,8 @@ app.get('/submit-name', function (req, res)
 
 app.get('/articles/:articleName', function (req, res) 
 {
+    res.send(req.params.articleName.toStrings());
+    /*
     pool.query("SELECT * FROM articles WHERE title =' " + req.params.articleName + " ' ",
     //pool.query("SELECT * FROM articles WHERE title ='article-one'",
     function (err, result)
@@ -130,7 +132,7 @@ app.get('/articles/:articleName', function (req, res)
                     }
                 }
     });
-    
+    */
 });
 
 app.get('/ui/style.css', function (req, res) 

@@ -15,6 +15,7 @@ var config =
 var app = express();
 app.use(morgan('combined'));
 
+/*
 var articles = 
 {
     'article-one' : 
@@ -42,6 +43,7 @@ var articles =
         date    :'Date : 3 Aug, 17'
     }
 };
+*/
 
 function createTemplate(data)
 {
@@ -66,7 +68,7 @@ function createTemplate(data)
             <h1>${heading}</h1>
             ${content}
             <hr/>
-            <h4>${date}</h4>
+            <h4>${date.toDateString()}</h4>
         </div>
         </body>
         

@@ -16,6 +16,15 @@ var config =
 var app = express();
 app.use(morgan('combined'));
 
+var pool = new Pool(config);
+app.get('/test-db', function (req, res) 
+{
+    pool.query('SELECT * FROM test', function (err, result)
+    {
+        if(err) {   res.status(500).send(err.toString());   }
+        else    {   res.send(JSON.stringify(result.rows));       }
+    });
+});
 /*
 var articles = 
 {
@@ -90,21 +99,25 @@ function hash(input, salt)
     return hashed.toString('hex');
 }
 
-var salt = 'this-is-a-random-string';
 app.get('/hash/:input', function (req, res)
 {
+    var salt = 'atta-maji-satakli-chaap-nis-na';
     var hashedString = hash(req.params.input, salt);
     res.send(hashedString);
 });
 
-var pool = new Pool(config);
-app.get('/test-db', function (req, res) 
+app.get('/create-user', function (req, res)
 {
-    pool.query('SELECT * FROM test', function (err, result)
+    var salt = crypto.getRandomBytes(128).toString('hex');
+    var dbString = hash(password, salt);
+    
+    pool.query('INSERT INTO userDB (username, password) VALUES ($1, $2)', [username, password],
+    function (err, result)
     {
         if(err) {   res.status(500).send(err.toString());   }
-        else    {   res.send(JSON.stringify(result.rows));       }
+        else    {   res.send(JSON.stringify(result.rows));  }
     });
+   
 });
 
 //counts the number of times share is clicked

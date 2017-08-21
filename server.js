@@ -1,6 +1,7 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
+var crypto = require('crypto');
 
 var Pool = require('pg').Pool;
 var config =
@@ -81,6 +82,18 @@ function createTemplate(data)
 app.get('/', function (req, res) 
 {
     res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+
+function hash(input, salt)
+{
+    var hashed = crypto.pbkdf2Sync(input, salt, 10000, 512, 'sha512');
+    return hashed;
+}
+
+var salt = 'this-is-a-random-string';
+app.get('/hash/:input', function (req, res)
+{
+    var hashedString = hash(req.params.input, salt);
 });
 
 var pool = new Pool(config);

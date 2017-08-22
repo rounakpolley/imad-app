@@ -35,6 +35,29 @@ img.onclick = function ()
     var interval = setInterval(moveRight, 10);
 };
 
+//submit username & password to login
+document.querySelector('#user_submit').onclick = function()
+{
+    var username = document.querySelector("")
+    var requestLogin = new XMLHttpRequest();     //request object
+    
+    requestLogin.onreadystatechange = function()
+    {
+        if(requestLogin.readyState === XMLHttpRequest.DONE)
+        {
+            if(requestLogin.status == 200)
+            {
+                
+            }
+        }
+    }
+    requestLogin.open('POST', 'http://rounakpolley19972014.imad.hasura-app.io/login');
+    requestLogin.send(JSON.strinfigy({username : username, password : password}));
+    
+};
+
+
+
 // share counter
 var counterButton = document.querySelector('#counterButton');
 var counterDisplay= document.querySelector('#counterDisplay');

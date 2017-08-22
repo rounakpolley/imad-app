@@ -153,7 +153,7 @@ app.post('/login', function (req, res)
                         {
                             //session
                             req.session.auth = { userId : result.rows[0].id};
-                            //setting a session id randomly generated
+                            //setting cookie a session id; on server maps it to a session obj {auth:...}
                             res.send('User succesfullyLoggedIn : '+username+'\n');
                         }
                         else
@@ -167,6 +167,13 @@ app.post('/login', function (req, res)
    
 });
 
+app.get('/check-login', function (req, res)
+{
+   if(req.session && req.session.auth && req.session.auth.userId)
+   {    res.send('Logged-in : '+req.session.auth.userId.toString());    }
+   else
+   {    res.send('Login to continue');                                  }
+});
 //counts the number of times share is clicked
 
 var counter = 0;

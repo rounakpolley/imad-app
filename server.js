@@ -140,8 +140,17 @@ app.post('/login', function (req, res)
                     }
                     else
                     {
-                        
-                        res.send('User succesfullyLoggedIn : '+username+'\n');   
+                        var dbString = result.rows[0].password;
+                        var salt = dbString.split('$')[2];
+                        var hashedPassword = hash(password, salt);
+                        if(hashedPassword === dbString)
+                        {
+                            res.send('User succesfullyLoggedIn : '+username+'\n');
+                        }
+                        else
+                        {
+                            res.send(403).send('username/password in incorrect');
+                        }
                     }
             
                 }

@@ -40,7 +40,7 @@ document.querySelector('#user_submit').onclick = function()
 {
     var username = document.querySelector('#username').value;
     var password = document.querySelector('#password').value;
-    alert('Logging in...' + username + password);
+    alert('Logging in...' + username +' : '+ password);
     var requestLogin = new XMLHttpRequest();     //request object
     
     requestLogin.onreadystatechange = function()

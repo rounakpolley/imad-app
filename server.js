@@ -174,8 +174,15 @@ app.get('/check-login', function (req, res)
    else
    {    res.send('Login to continue');                                  }
 });
-//counts the number of times share is clicked
 
+
+app.get('/logout', function (req, res)
+{
+   delete req.session.auth;
+   res.send('Logged-out successfully');
+});
+
+//counts the number of times share is clicked
 var counter = 0;
 app.get('/counter', function (req, res)
 {

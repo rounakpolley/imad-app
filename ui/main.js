@@ -38,7 +38,9 @@ img.onclick = function ()
 //submit username & password to login
 document.querySelector('#user_submit').onclick = function()
 {
-    var username = document.querySelector("")
+    var username = document.querySelector('#username').value;
+    var password = document.querySelector('#password').value;
+    
     var requestLogin = new XMLHttpRequest();     //request object
     
     requestLogin.onreadystatechange = function()
@@ -47,11 +49,20 @@ document.querySelector('#user_submit').onclick = function()
         {
             if(requestLogin.status == 200)
             {
-                
+                alert('Logged-in successfully');
+            }
+            else if(requestLogin.status == 403)
+            {
+                alert('Username or password is incorrect');
+            }
+            else if(requestLogin.status == 500)
+            {
+                alert('Something went wrong !');
             }
         }
     }
-    requestLogin.open('POST', 'http://rounakpolley19972014.imad.hasura-app.io/login');
+    requestLogin.open('POST', 'http://rounakpolley19972014.imad.hasura-app.io/login', true);
+    requestLogin.setRequestHeader('Content-Type', 'application/json');
     requestLogin.send(JSON.strinfigy({username : username, password : password}));
     
 };

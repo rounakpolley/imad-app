@@ -3,6 +3,7 @@ var morgan = require('morgan');
 var path = require('path');
 var crypto = require('crypto');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 var Pool = require('pg').Pool;
 var config =
@@ -17,6 +18,11 @@ var config =
 var app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
+app.use(session({
+                    secret : 'atta-maji-satakli-chaap-nis-na',
+                    Cookie : { maxAge : 1000*60*60*24 }
+                }
+));
 
 var pool = new Pool(config);
 app.get('/test-db', function (req, res) 
@@ -145,8 +151,10 @@ app.post('/login', function (req, res)
                         var hashedPassword = hash(password, salt);
                         if(hashedPassword === dbString)
                         {
+                            //session
+                            req.session.auth = { userId : result.rows[0].id};
+                            //setting a session id randomly generated
                             res.send('User succesfullyLoggedIn : '+username+'\n');
-                            
                         }
                         else
                         {

@@ -40,7 +40,7 @@ document.querySelector('#user_submit').onclick = function()
 {
     var username = document.querySelector('#username').value;
     var password = document.querySelector('#password').value;
-    alert('Logging in...' + username +' : '+ password);
+    //alert('Logging in...' + username +' : '+ password);
     var requestLogin = new XMLHttpRequest();     //request object
     
     requestLogin.onreadystatechange = function()
@@ -63,7 +63,7 @@ document.querySelector('#user_submit').onclick = function()
     }
     requestLogin.open('POST', 'http://rounakpolley19972014.imad.hasura-app.io/login', true);
     requestLogin.setRequestHeader('Content-Type', 'application/json');
-    requestLogin.send(JSON.strinfigy({username : username, password : password}));
+    requestLogin.send(JSON.strinfigy({ "username" : username, "password" : password}));
     
 };
 
